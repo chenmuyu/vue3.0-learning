@@ -1,8 +1,13 @@
 <!--
  * @Description: 
 -->
+<!--
+ * @Description: 
+-->
 <template>
-  <div>sss
+  <div>
+    sss
+    {{nihao}}
     <div @click="changeNum">diandianwo</div>
     <myson></myson>
   </div>
@@ -30,7 +35,7 @@ export default defineComponent({
     });
     const abc = toRef(state, "foo");
     provide("abc", state);
-  
+
     const changeNum = () => {
       console.log("1232131233");
       state.foo = Math.random() * 10; // ={number:"222222www2222222222"};
@@ -43,7 +48,7 @@ export default defineComponent({
     );
 
     const count = ref(0);
-      provide("count", count);
+    provide("count", count);
     watch(count, (count: any, prevCount: any) => {
       /* ... */
       console.log(count, prevCount, "223");
@@ -57,10 +62,15 @@ export default defineComponent({
       // -> logs 1  watchEffect会执行
     }, 2000);
     setTimeout(() => {
-      count.value++;
-      state.foo++;
+      // count.value++;
+      // state.foo++;
+
+      nihao.value = "123";
       // -> logs 1  watchEffect会执行
     }, 4000);
+    const msg = ref<string>("Hello World!");
+    let nihao = ref<string>("Hello 2World!");
+    // let nihao = ""// error
 
     // 错误监听
     onErrorCaptured((err: any, instance: any, info: any) => {
@@ -72,7 +82,7 @@ export default defineComponent({
     });
     // const router = useRouter();
     // const list = computed(() => store.state.columns);
-    return { changeNum };
+    return { changeNum, nihao };
   },
 });
 </script>

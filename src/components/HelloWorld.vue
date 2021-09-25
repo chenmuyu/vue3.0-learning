@@ -1,12 +1,9 @@
-<!--
- * @Description: 
--->
 <template>
-  <div class="hello">{{msg}}</div>
+  <div class="hello">{{sonRef}}{{msg}}</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent,ref } from "vue";
 
 export default defineComponent({
   name: "HelloWorld",
@@ -17,8 +14,9 @@ export default defineComponent({
     const handleFunc = () => {
       console.log(props.msg,"s");
     };
+    let sonRef =  ref('11HelloWorld')
     handleFunc();
-    return { handleFunc };
+    return { handleFunc ,sonRef};
   },
 });
 </script>
