@@ -44,6 +44,20 @@ const routes: Array<RouteRecordRaw> = [
         /* webpackChunkName: "about" */ "../views/pratice/useSuspense.vue"
       ),
   },
+  {
+    path: "/useReactive",
+    name: "useReactive",
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/pratice/useReactive.vue"
+      ),
+  },
+  {
+    path: "/useWatch",
+    name: "useWatch",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/pratice/useWatch.vue"),
+  },
 ];
 
 const router = createRouter({

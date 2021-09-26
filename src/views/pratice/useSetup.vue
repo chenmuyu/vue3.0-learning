@@ -6,6 +6,7 @@
     {{name}}
     {{x}}
     {{y}}
+    {{activeValue}}
   </div>
 </template>
 
@@ -68,7 +69,19 @@ export default defineComponent({
     setTimeout(() => {
       nihao.value = "123"; //必须这样读
     }, 1000);
-    
+
+    // 6 响应式reactive
+    let activeValue = reactive([1, 2, 4, 5, 6, 78, 9]);
+    setTimeout(() => {
+      activeValue.push(222);
+    }, 2000);
+    setTimeout(() => {
+      // 不失去响应式
+      // activeValue.length = 0;
+      //  失去响应式
+      activeValue = reactive([1, 2, 4, 5, 6, 78, 9]);
+      activeValue = [];
+    }, 4000);
     onMounted(() => {
       // console.log(child.value?.sonRef, "ssssss");
     });
@@ -80,6 +93,7 @@ export default defineComponent({
       age,
       changeHandle,
       sonRef,
+      activeValue,
     };
   },
 });
