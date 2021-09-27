@@ -1,6 +1,3 @@
-/*
- * @Description: 
- */
 module.exports = {
   root: true,
   env: {
@@ -17,6 +14,6 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    // "@typescript-eslint/ban-ts-comment": "off"
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }

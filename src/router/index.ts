@@ -1,3 +1,6 @@
+/*
+ * @Description: 
+ */
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 
@@ -57,6 +60,12 @@ const routes: Array<RouteRecordRaw> = [
     name: "useWatch",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/pratice/useWatch.vue"),
+  },
+  {
+    path: "/useCss",
+    name: "useCss",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/pratice/useCss.vue"),
   },
 ];
 
