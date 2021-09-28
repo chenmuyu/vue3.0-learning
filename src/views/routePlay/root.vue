@@ -14,10 +14,9 @@ export default defineComponent({
   components: {},
   setup() {
     const router = useRouter();
-    console.log(router)
     const goTopermission = () => {
       // 跳转首页
-      (router as any).push({
+      router.push({
         name: "Home",
       });
     };
