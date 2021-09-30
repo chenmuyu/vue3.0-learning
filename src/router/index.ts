@@ -1,16 +1,19 @@
+/*
+ * @Description: 
+ */
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import routes from "./routes";
-
+import communicate from "./communicate";
 function scrollBehavior() {
   // `to` and `from` are both route locations
   // `savedPosition` can be null if there isn't one
-  console.log("sssssssss2");
 }
-
+console.log([...routes,...communicate])
+console.log(routes)
 const router = createRouter({
   // history
   history: createWebHistory(process.env.BASE_URL),
-  routes,
+  routes:[...routes,...communicate],
   linkActiveClass: "yellow",
   linkExactActiveClass: "red",
   scrollBehavior: scrollBehavior,
