@@ -1,3 +1,6 @@
+<!--
+ * @Description: 
+-->
 <template>
   <!-- <div id="nav">
     <router-link to="/">Home</router-link> |
@@ -20,7 +23,6 @@
   </div>
 </template>
 <script>
-import "bootstrap/dist/css/bootstrap.min.css";
 import { defineComponent } from "vue";
 import { useRoute } from "vue-router";
 import Login from "./views/Login.vue";
