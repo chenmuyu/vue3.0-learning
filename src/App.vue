@@ -6,14 +6,14 @@
   <router-view/>-->
   <!-- 部分路由全局，部分路由带公共组件 -->
   <div>
-    <router-link to="/">Home</router-link>|
+    <!-- <router-link to="/">Home</router-link>|
     <router-link to="/about">About</router-link>|
     <router-link to="/login">login</router-link>|
     <router-link to="/register">register</router-link>
-    <router-link to="/root">root</router-link>
+    <router-link to="/root">root</router-link> -->
     <Login v-if="route.name === 'login'"/>
     <Register v-else-if="route.name === 'register'"/>
-    <div v-else>1
+    <div v-else>
       <GlobalHeader :user="{name:1}"/>
       <router-view></router-view>
     </div>

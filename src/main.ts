@@ -1,13 +1,18 @@
+/*
+ * @Description: 
+ */
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 const app = createApp(App);
-
+import axios from "axios";
+app.config.globalProperties.$axios = axios;
 app
   .use(store)
   .use(router)
   .mount("#app");
+
 app.config.errorHandler = (err, vm, info) => {
   console.log("err");
   console.log(err);

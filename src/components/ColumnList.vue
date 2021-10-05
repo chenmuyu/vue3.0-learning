@@ -1,16 +1,19 @@
+<!--
+ * @Description: 
+-->
 <template>
   <div class="row">
     <div v-for="column in columnList" :key="column.id" class="col-4 mb-4">
       <div class="card h-100 shadow-sm">
         <div class="card-body text-center">
           <img
-            :src="column.avatar"
+            :src="column.avatar.url"
             :alt="column.title"
             class="rounded-circle border border-light w-25 my-3"
           >
           <h5 class="card-title">{{column.title}}</h5>
           <p class="card-text text-left">{{column.description}}</p>
-          <a href="#" class="btn btn-outline-primary">进入专栏</a>
+          <button class="btn btn-outline-primary" @click="goToDetail(column)">进入专栏</button>
         </div>
       </div>
     </div>
@@ -39,9 +42,14 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(props) {
-
-
+  emits: {
+    updateMethods: null,
+  },
+  setup(props,{emit}) {
+    const goToDetail = (item: any) => {
+      console.log(item,"ssssssssss")
+      emit("updateMethods", item._id);
+    };
     const columnList = computed(() => {
       return props.list.map((column) => {
         if (!column.avatar) {
@@ -53,6 +61,7 @@ export default defineComponent({
 
     return {
       columnList,
+      goToDetail,
     };
   },
 });
