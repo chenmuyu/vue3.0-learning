@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <ColumnList :list="tableData" @updateMethods="updateMethods"></ColumnList>
@@ -46,13 +47,14 @@ export default defineComponent({
         .get("/myzhihu/api/columns?currentPage=1&pageSize=10")
         .then((res: any) => {
           // console.log(res.data.data.list as Array<any>);
+          console.log(res,"resress")
           // @ts-ignore
-          if (res.data.data.list) {
+          if (res.list) {
             // res.data.data.list.forEach((element: any) => {
             //   // // @ts-ignore
             //   List.push(element)
             // });
-            state.tableData = res.data.data.list;
+            state.tableData = res.list;
           }
         });
     };

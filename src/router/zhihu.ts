@@ -6,9 +6,15 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/zhihu/Home.vue"),
   },
   {
-    path: "/zhihu/recommendDetail",
+    path: "/zhihu/recommend/recommendDetail",
     name: "recommendDetail",
     component: () => import("../views/zhihu/Detail.vue"),
   },
+  {
+    path: "/zhihu/recommend/recommendDetail/articleDetail",
+    name: "articleDetail",
+    component: () => import("../views/zhihu/articleDetail.vue"),
+  },
 ];
+
 export default routes;

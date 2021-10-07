@@ -1,3 +1,6 @@
+/*
+ * @Description: 
+ */
 import axios from "axios";
 
 export type Method = "GET" | "PUT" | "POST" | "DELETE";
@@ -41,4 +44,20 @@ export interface PostDemo {
   }>;
 }
 
+axios.defaults.withCredentials = true;
+axios.defaults.headers["token"] = localStorage.getItem("token");
+
+axios.interceptors.response.use((res) => {
+  if (typeof res.data !== "object") {
+    return Promise.reject(res);
+  }
+  if (res.data.code != 0) {
+    // if (res.data.message) ElMessage.error(res.data.message);
+    // if (res.data.resultCode == 419) {
+    //   router.push({ path: "/login" });
+    // }
+    return Promise.reject(res.data);
+  }
+  return res.data.data;
+});
 export { axios };

@@ -14,7 +14,7 @@
     <div class="post-list">
       <article class="card mb-3 shadow-sm" v-for="(info ,index) in tableData" :key="index">
         <div class="card-body">
-          <h4>{{info.title}}</h4>
+          <h4 ><a href="/zhihu/recommend/recommendDetail/articleDetail?id={{info.title}}">{{info.title}}</a></h4>
           <div class="row my-3 align-items-center">
             <div class="col-4">
               <img :src="info.image.url" class="rounded-lg w-100" alt="">
@@ -48,12 +48,12 @@ export default defineComponent({
     });
     const getData = (id: string) => {
       proxy.$axios.get(`/myzhihu/api/columns/${id}`).then((res: any) => {
-        state.authorInfo = res.data.data;
+        state.authorInfo = res;
       });
       proxy.$axios
         .get(`/myzhihu/api/columns/${id}/posts?currentPage=1&pageSize=5`)
         .then((res: any) => {
-          state.tableData = res.data.data.list;
+          state.tableData = res.list;
         });
     };
     const routes = useRoute();
