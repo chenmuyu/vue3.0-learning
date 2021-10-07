@@ -1,9 +1,12 @@
+<!--
+ * @Description: 
+-->
 <template>
-  <div class="w-690">
+  <div class="column-detail-page w-690">
     <div class="column-info row mb-4 border-bottom pb-4 align-items-center">
-      <div class="middle_block">
+      <div class="middle_block column-info row mb-4 border-bottom pb-4 align-items-center">
         <div class="col-3 text-center">
-          <img :src="authorInfo.avatar.url" alt="">
+          <img :src="authorInfo.avatar.url" class="rounded-circle border w-100" alt="">
         </div>
         <div class="col-9">
           <h4>{{authorInfo.title}}</h4>
@@ -14,7 +17,7 @@
     <div class="post-list">
       <article class="card mb-3 shadow-sm" v-for="(info ,index) in tableData" :key="index">
         <div class="card-body">
-          <h4 ><a href="/zhihu/recommend/recommendDetail/articleDetail?id={{info.title}}">{{info.title}}</a></h4>
+          <h4 @click="goToDetail(info)">{{info.title}}</h4>
           <div class="row my-3 align-items-center">
             <div class="col-4">
               <img :src="info.image.url" class="rounded-lg w-100" alt="">
@@ -29,7 +32,7 @@
 </template>
 
 <script lang='ts'>
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import {
   defineComponent,
   getCurrentInstance,
@@ -61,8 +64,18 @@ export default defineComponent({
       console.log(routes.params);
       getData(routes.params.id as string);
     });
+    const router = useRouter();
+    const goToDetail = (info:any) => {
+      router.push({
+        name: "articleDetail",
+        params: {
+          id: info._id,
+        },
+      });
+    };
     return {
       ...toRefs(state),
+      goToDetail,
     };
   },
 });

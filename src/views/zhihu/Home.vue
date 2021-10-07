@@ -1,11 +1,15 @@
+<!--
+ * @Description: 
+-->
 
 <template>
-  <div>
+  <div class="home-page container-md">
     <ColumnList :list="tableData" @updateMethods="updateMethods"></ColumnList>
   </div>
 </template>
 
 <script lang='ts'>
+import "bootstrap/dist/css/bootstrap.min.css";
 import ColumnList from "@/components/ColumnList.vue"; // @ is an alias to /src
 import {
   defineComponent,
