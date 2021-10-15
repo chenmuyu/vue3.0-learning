@@ -1,6 +1,3 @@
-<!--
- * @Description: 
--->
 <template>
   <div>
     <div>我是一个子组件</div>
@@ -12,7 +9,7 @@
 
 <script lang='ts'>
 import { defineComponent, ref, inject } from "vue";
-import bus from "@utils/EventBus";
+import bus from "@/util/EventBus";
 export default defineComponent({
   inheritAttrs: false,
   // props: ["title", "userName"],
