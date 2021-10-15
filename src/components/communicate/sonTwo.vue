@@ -1,10 +1,13 @@
+<!--
+ * @Description: 
+-->
 <template>
   <div>sonttotototototo</div>
 </template>
 
 <script lang='ts'>
 import { defineComponent } from "vue";
-import bus from "@/util/EventBus";
+import bus from "@utils/EventBus";
 export default defineComponent({
   setup() {
     // 定义一个打招呼的方法

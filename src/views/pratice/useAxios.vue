@@ -1,3 +1,6 @@
+<!--
+ * @Description: 
+-->
 <template>
   <div>
     1111 {{httpResult.message}}
@@ -7,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
-import useAxios from "@/util/http.ts";
+import useAxios from "@utils/http";
 export default defineComponent({
   setup() {
     const { result, loading, loaded } = useAxios(

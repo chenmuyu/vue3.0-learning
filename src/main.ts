@@ -5,7 +5,7 @@ import store from "./store";
 import "bootstrap"; //引入bootstrap.js
 import "bootstrap/dist/css/bootstrap.css";
 const app = createApp(App);
-import { axios } from "@/util/axios";
+import { axios } from "@/utils/axios";
 app.config.globalProperties.$axios = axios;
 app
   .use(store)
